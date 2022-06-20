@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+    <h:head>
+        <title>Registration</title>
+    </h:head> 
+    <body> 
+        <h:form id="registrationForm">
+            <p:panel header="Registration Form" style="width: 550px;  margin: 0 auto;">
+                <p:messages/>
+                <h:panelGrid columns="2" style="margin: 0 auto;">
+                    <p:outputLabel value="UserName:"/>
+                    <p:inputText id="userName" value="#{signup.username}" label="UserName" />      
+
+                    <p:outputLabel value="Password:"/>
+                    <p:password id="password" value="#{signup.password}" label="Password"/>
+
+                    <p:outputLabel value="FullName:"/>
+                    <p:inputText id="firstName" value="#{signup.fullname}" label="FullName"/>
+
+                    <p:outputLabel value="Address:"/>
+                    <p:inputText id="address" value="#{signup.address}"/>
+
+                    <p:outputLabel value=""/>
+                    <p:commandButton action="#{signup.signupControl()}" value="Register" update="registrationForm"/>
+
+                    <p:linkButton outcome="test" value="Login" icon="pi pi-user" style="text-decoration: none;float: right;" target="_blank"></p:linkButton>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </body> 
+</html>

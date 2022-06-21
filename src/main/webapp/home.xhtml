@@ -4,11 +4,19 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Home</title>
     </h:head>
     <h:body>
-        
-        <h1>Login Successfully dechu~</h1>
+        <h:form id="home-form">
+            <p:panel header="Home">
+                <p>
+                    <h:outputText id="welcome-message"
+                                  value="Welcome, #{login.currentAccount.getUsername()}!" />
+                </p>
+
+                <p:commandButton value="Logout" action="#{login.logoutControl()}" />
+            </p:panel>
+        </h:form>
     </h:body>
 </html>
 

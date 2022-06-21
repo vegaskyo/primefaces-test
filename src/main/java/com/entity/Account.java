@@ -5,8 +5,6 @@
 package com.entity;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,8 +34,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Account.findByAddress", query = "SELECT a FROM Account a WHERE a.address = :address"),
     @NamedQuery(name = "Account.findByRole", query = "SELECT a FROM Account a WHERE a.role = :role")})
 
-@ManagedBean(name = "account")
-@SessionScoped
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -66,8 +62,6 @@ public class Account implements Serializable {
     @Size(max = 45)
     @Column(name = "role")
     private String role;
-
-    public boolean isLogged = false;
 
     public Account() {
     }
@@ -154,11 +148,6 @@ public class Account implements Serializable {
     public String toString() {
         return "com.entity.Account[ username=" + username + " ]";
 
-    }
-
-    public String action() {
-        isLogged = true;
-        return "loginsuccessfully.xhtml?faces-redirect=true";
     }
 
 }

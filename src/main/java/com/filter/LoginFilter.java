@@ -35,7 +35,7 @@ public class LoginFilter implements Filter {
         HttpServletResponse httpServletResponse
                 = (HttpServletResponse) response;
 
-        LoginController loginController = (LoginController) httpServletRequest.getSession().getAttribute("login");
+        LoginController loginController = (LoginController) httpServletRequest.getSession().getAttribute("loginController");
 
         if (loginController != null) {
             if (loginController.isLoggedIn()) {
@@ -46,11 +46,17 @@ public class LoginFilter implements Filter {
                 LOGGER.debug("User is not logged in");
 
                 httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + LOGIN_PAGE);
+//                RequestDispatcher dispatcher
+//                        = request.getRequestDispatcher(INDEX_PAGE);
+//                dispatcher.forward(request, response);
             }
         } else {
             LOGGER.debug("LoginController not found");
 
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + LOGIN_PAGE);
+//            RequestDispatcher dispatcher
+//                    = request.getRequestDispatcher(INDEX_PAGE);
+//            dispatcher.forward(request, response);
         }
     }
 
